@@ -17,7 +17,7 @@ export class TcpClientService implements OnModuleInit, OnModuleDestroy {
   constructor(private readonly option: ConfigService<MyOption>) {
     this.socketConnectOpts = {
       host: this.option.get('HOST', 'localhost'),
-      port: this.option.get('PORT', 80),
+      port: this.option.get('PORT', 8080),
     }
   }
 
