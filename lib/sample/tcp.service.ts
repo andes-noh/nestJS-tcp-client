@@ -36,5 +36,44 @@ export class TcpClientService implements OnModuleInit, OnModuleDestroy {
     this.socket.end(() => console.log('Disconnected!!'))
   }
 
-  //
+  @boundMethod
+  makeConnection() {
+    this.socket.connect(this.socketConnectOpts)
+  }
+
+  @boundMethod
+  onEnd() {
+    this.socket.destroy()
+    console.log('Requested an end to the TCP connection')
+  }
+
+  @boundMethod
+  async onData(data: Buffer) {
+    console.log('data: ' + data)
+  }
+
+  @boundMethod
+  onClose() {
+    if (!this.reconnect) {
+      this.reconnect = true
+      console.log('Reconnecting...')
+    }
+    setTimeout(this.makeConnection, 3_000)
+  }
+
+  @boundMethod
+  onTimeout() {
+    console.error('timeout')
+  }
+
+  @boundMethod
+  onError(err: Error) {
+    console.error(err)
+  }
+
+  @boundMethod
+  onConnect() {
+    console.log('connected')
+    this.reconnect = false
+  }
 }
