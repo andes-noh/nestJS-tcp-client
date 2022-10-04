@@ -1,13 +1,4 @@
-# NestJs-tcp-client Project
-
-- yarn upgrade ts-node-dev@latest ts-node@latest 버전 업그레이드
-- tcp-client standalone application
-- auto reconnecting
-- .env file(host, port)
-- default host: localhost, default port: 8080
-
-# NestJs-http-server Project(v0.3)
-
+# NestJs-tcp-client Project(v0.1)
 
 ## Runtime
 - [Node JS](https://nodejs.org/ko/)
@@ -30,25 +21,12 @@ tsc --build --force
 ```
 - tsc --build(*.ts -> *.js)
 
-## 추가 라이브러리 및 프레임워크
-- fastify 
-- swagger
-- typeorm
+## 기능
+- tcp 클라이언트
+- auto reconnecting
 
-## swagger
-
-- `localhost:3000/swagger`
-- ./index.ts로 주소 변경 가능
-
-## api
-
-- get, post 구현
-- delete, patch 구현 완료
-
-## CI/CD pipeline 구축 (with argocd)
-
-- docker file 작성
-- Link: [Argo CD][argocd]
-
-[argocd]: https://argo-cd.readthedocs.io/en/stable/ 'Go Argo'
+## 설정
+- /.env file(host, port) 수정
+- default host: localhost
+- default port: 8080
 
